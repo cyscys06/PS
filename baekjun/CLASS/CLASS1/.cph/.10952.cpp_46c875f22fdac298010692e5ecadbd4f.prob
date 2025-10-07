@@ -1,0 +1,1 @@
+{"name":"Local: 10952","url":"c:\\Users\\user\\Desktop\\VS Code Projects\\baekjun\\CLASS1\\10952.cpp","tests":[{"id":1757328386635,"input":"1 1\n2 3\n3 4\n9 8\n5 2\n0 0","output":"2\n5\n7\n17\n7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\user\\Desktop\\VS Code Projects\\baekjun\\CLASS1\\10952.cpp","group":"local","local":true}
