@@ -65,16 +65,16 @@ struct game {
 
     void buildDeck() {
         for (int i = 0; i < 13; i++) {
-            deck[i] = card{i + 1, card::HEART};
+            deck[i] = card{i + 1, card::HEART}; // 하트 1~13
         }
         for (int i = 0; i < 13; i++) {
-            deck[i + 13] = card{i + 1, card::SPADE};
+            deck[i + 13] = card{i + 1, card::SPADE}; // 스페이드 1~13
         }
         for (int i = 0; i < 13; i++) {
-            deck[i + 26] = card{i + 1, card::CLUB};
+            deck[i + 26] = card{i + 1, card::CLUB}; // 클로버 1~13
         }
         for (int i = 0; i < 13; i++) {
-            deck[i + 39] = card{i + 1, card::DIAMOND};
+            deck[i + 39] = card{i + 1, card::DIAMOND}; // 다이아몬드 1~13
         }
     }
 
