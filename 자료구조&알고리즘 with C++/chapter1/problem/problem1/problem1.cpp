@@ -24,7 +24,8 @@ class Song {
         void printAll() {
             cout << "노래 이름: " << songName << endl;
             cout << "아티스트 이름: " << artistName << endl;
-            cout << "재생 시간: " << playtime << endl;
+            cout << "재생 시간: " << playtime << "분" << endl;
+            cout << endl;
         }
 
         double getPlayTime() const {
@@ -55,23 +56,23 @@ class Playlist_Iterator {
             return cur;
         }
 
-        Playlist_Iterator& operator++() {
+        Playlist_Iterator& operator++() { // 전위 증가 연산자
             cur = cur->next; // cur이 cur자신의 next(다음 노드)를 가리키도록 수정
             return *this; // 증가한 자기 자신(객체)를 반환
         }
 
-        Playlist_Iterator operator++(int) {
+        Playlist_Iterator operator++(int) { // 후위 증가 연산자
             Playlist_Iterator term = *this;
             ++(*this); // 자기 자신은 실제로 증가
             return term; // 증가하기 전의 자신을 반환
         }
 
-        Playlist_Iterator& operator--() {
+        Playlist_Iterator& operator--() { // 전위 감소 연산자
             cur = cur->prev; // cur이 cur자신의 prev(이전 노드)를 가리키도록 수정
             return *this; // 감소한 자기 자신(객체)를 반환
         }
 
-        Playlist_Iterator operator--(int) {
+        Playlist_Iterator operator--(int) { // 후위 감소 연산자
             Playlist_Iterator term = *this;
             --(*this); // 자기 자신은 실제로 감소
             return term; // 감소하기 전의 자신을 반환
@@ -119,11 +120,19 @@ class Playlist {
                 return;
             }
             
-            if (node->prev) node->prev->next = node->next;
-            if (node->next) node->next->prev = node->prev;
-
-            if (node == head) head = node->next;
-            if (node == rear) rear = node->prev;
+            if (node->prev != nullptr) {
+                node->prev->next = node->next;
+            } 
+            if (node->next != nullptr) {
+                node->next->prev = node->prev;
+            }
+            
+            if (node == head) {
+                head = node->next;
+            }
+            if (node == rear) {
+                rear = node->prev;
+            }
 
             delete node;
         }
@@ -131,7 +140,9 @@ class Playlist {
         void printAll() {
             cout << "재생목록 이름: " << playlistName << endl;
             cout << "노래 개수: " << songCount << endl;
-            cout << "총 재생 시간: " << playTime << endl;
+            cout << "총 재생 시간: " << playTime << "분" << endl;
+            cout << endl;
+            cout << "노래 목록 \n";
         }
 
         Playlist_Iterator begin() {
@@ -183,7 +194,6 @@ int main() {
     playlist1.insert(song3);
     playlist1.printAll();
 
-    cout << "노래 목록: \n";
     for (Song& song : playlist1) {
         song.printAll();
     }
